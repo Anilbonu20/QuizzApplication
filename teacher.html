@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher - Create Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>👨‍🏫 Create Quiz</h1>
+            <div class="header-buttons">
+                <button class="btn btn-outline" onclick="logoutTeacher()">🔒 Logout</button>
+                <button class="btn btn-outline" onclick="window.location.href='index.html'">← Back to Home</button>
+            </div>
+        </div>
+
+        <div class="quiz-form-card card">
+            <h2>Add Question</h2>
+            
+            <div class="form-group">
+                <label>Quiz Name</label>
+                <input type="text" id="quizName" placeholder="Enter quiz name" required>
+            </div>
+
+            <div class="form-group">
+                <label>Question</label>
+                <textarea id="question" placeholder="Enter your question" rows="3" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Option 1</label>
+                <input type="text" id="op1" placeholder="Enter option 1" required>
+            </div>
+
+            <div class="form-group">
+                <label>Option 2</label>
+                <input type="text" id="op2" placeholder="Enter option 2" required>
+            </div>
+
+            <div class="form-group">
+                <label>Option 3</label>
+                <input type="text" id="op3" placeholder="Enter option 3" required>
+            </div>
+
+            <div class="form-group">
+                <label>Option 4</label>
+                <input type="text" id="op4" placeholder="Enter option 4" required>
+            </div>
+
+            <div class="form-group">
+                <label>Correct Answer</label>
+                <select id="correct" required>
+                    <option value="">Select correct answer</option>
+                    <option value="0">Option 1</option>
+                    <option value="1">Option 2</option>
+                    <option value="2">Option 3</option>
+                    <option value="3">Option 4</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Time Limit (seconds)</label>
+                <input type="number" id="timeLimit" placeholder="Time in seconds" value="30" min="5" required>
+            </div>
+
+            <button class="btn btn-primary" onclick="addQuestion()">Add Question</button>
+        </div>
+
+        <div class="questions-list-card card">
+            <div class="questions-header">
+                <h2>Questions Added (<span id="questionCount">0</span>)</h2>
+                <button class="btn btn-success" onclick="saveQuiz()" id="saveBtn" disabled>💾 Save Quiz</button>
+            </div>
+            
+            <div id="questionsList"></div>
+        </div>
+
+        <div id="savedQuizzes" class="card">
+            <h2>Saved Quizzes</h2>
+            <div id="quizzesList"></div>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="teacher.js"></script>
+    <script>
+        // Check authentication on page load
+        checkTeacherAuth();
+    </script>
+</body>
+</html>
+
